@@ -1,0 +1,59 @@
+@import '../../base';
+
+.video{
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    // width: 270px;
+
+    &__top{
+        margin-bottom: 0.5rem;
+        position: relative;
+        img{
+            width: 100%;
+            border-radius: 10px;
+        }
+        .lazy-load-image-background{
+            width: 100%;
+        }
+        &__duration{
+            position: absolute;
+            right: 0.3rem;
+            bottom: 0.3rem;
+            background: rgba(14, 13, 13, 0.788);
+            padding: 0.3rem;
+            border-radius: 3px;
+        }
+    }
+    &__title{
+        margin-bottom: 0.1rem;
+        // justify-content: center;
+        // width: 80%;
+    }
+    &__details{
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        gap: 0.5rem;    
+        // width: 90%;
+
+    }
+    &__channel{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #fff;    
+        img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        p{
+            margin: 0;
+           @include line-clamp(1);
+        }
+    }
+
+}

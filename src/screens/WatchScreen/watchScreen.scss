@@ -1,0 +1,9 @@
+.watchScreen__player{
+    height:60vh;
+    margin-bottom: 2rem;transition: 0.5s ease-in-out;
+}
+@media screen and (max-width: 720px) {
+    .watchScreen__player{
+        height:40vh;
+    }
+}
