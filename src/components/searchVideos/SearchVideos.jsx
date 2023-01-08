@@ -9,14 +9,14 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Col, Row } from "react-bootstrap";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const VideoHorizontal = ({video, SearchScreen, subScreen}) => {
+const VideoHorizontal = ({video}) => {
 
   const [views, setViews] = useState(null);
   const [duration, setDuration] = useState(null);
   const [channelIcon, setChannelicon] = useState(null);
   const navigate = useNavigate()
   // console.log("video", video);
-  
+
   const {
     id,
     snippet: {
@@ -29,6 +29,7 @@ const VideoHorizontal = ({video, SearchScreen, subScreen}) => {
        resourceId,
     }
  } = video
+
 
   const seconds = moment.duration(duration).asSeconds();
   const _duration = moment.utc(seconds * 1000).format("mm:ss");
@@ -64,21 +65,20 @@ const VideoHorizontal = ({video, SearchScreen, subScreen}) => {
           id: channelId,
         },
       });
-      setChannelicon(items[0].snippet.thumbnails.default);
+      setChannelicon(items[0].snippet.thumbnails.medium.url);
     };
     getChannelIcon();
   }, [channelId]);
 
   const handleVideo = ()=>{
       navigate(`/watch/${id?.videoId}`) ;
-
   }
 
   const thumbnail = !isVideo && 'videoHorizontal__thumbnail-channel'
 
   return (
     <Row className="videoHorizontal py-2 m-1 align-items-center " onClick={handleVideo}> 
-      <Col xs={6} md={SearchScreen || subScreen? 4:8}className="videoHorizontal__left d-flex align-items-center">
+      <Col xs={6} md={8}className="videoHorizontal__left d-flex align-items-center">
         <LazyLoadImage
           src={medium?.url}
           effect="blur"
@@ -87,7 +87,7 @@ const VideoHorizontal = ({video, SearchScreen, subScreen}) => {
         />
         { isVideo &&  <span className="videoHorizontal__duration">{_duration}</span> }       
       </Col>
-      <Col xs={6} md={SearchScreen || subScreen? 8:4} className='videoHorizontal__right'>
+      <Col xs={6} md={4} className='videoHorizontal__right'>
         <p className="videoHorizontal__title mb-2">
           {title}
         </p>

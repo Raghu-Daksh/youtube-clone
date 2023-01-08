@@ -42,25 +42,23 @@ const App =()=> {
       if(!loading && !accessToken){
         navigate('/auth');
       }
+  },[accessToken,loading]);
 
-  },[accessToken,loading])  
-
-  return (
+return (
    <div className="app">
-    <Routes>
-       <Route exact path="/" element={<Layout> <HomeScreen /> </Layout>} />
-       <Route exact path="/watch/:id" element={<Layout> <WatchScreen /> </Layout>} />
-       <Route path="/auth" element={ <LoginScreen />  } />
-       <Route path="/search/:query" element={<Layout><SearchScreen/></Layout>} />
-       <Route path="/channel/:channelId" element={<Layout><ChannelScreen /></Layout>} />
-       <Route path="/feed/subscriptions/" element={<Layout><SubscriptionScreen/></Layout>} />
-       <Route exact path="/*" element={<Layout><h1>page not found</h1> </Layout>} />\
-    </Routes> 
+      <Routes>
+        <Route exact path="/" element={<Layout> <HomeScreen /> </Layout>} />
+        <Route exact path="/watch/:id" element={<Layout> <WatchScreen /> </Layout>} />
+        <Route path="/auth" element={ <LoginScreen />  } />
+        <Route path="/search/:query" element={<Layout><SearchScreen/></Layout>} />
+        <Route path="/channel/:channelId" element={<Layout><ChannelScreen /></Layout>} />
+        <Route path="/feed/subscriptions/" element={<Layout><SubscriptionScreen/></Layout>} />
+        <Route exact path="/*" element={<Layout><h1>page not found</h1> </Layout>} />\
+      </Routes> 
    </div>  
-  )
-}
+)}
 
-  export default App;
+export default App;
    
  
 

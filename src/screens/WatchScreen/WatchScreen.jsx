@@ -28,7 +28,6 @@ const WatchScreen = () => {
   const {videos, loading: relatedVideosLoading} = useSelector(state=>state.relatedVideos);
   // console.log('video', video);
   // console.log('loading', loading);
-  
   return (
     <Row>
       <Col lg={8}>

@@ -34,7 +34,7 @@ export const getPopolarVideos = () => async (dispatch, getState) => {
            part: 'snippet,contentDetails,statistics',
            chart: 'mostPopular',
            regionCode: 'IN',
-           maxResults: 20,
+           maxResults: 100,
            pageToken: getState().homeVideos.nextPageToken,
         },
      })
@@ -144,7 +144,7 @@ export const getRelatedVideos = id => async dispatch => {
    }}
 
 
-export const getVideosBySearch = keyword => async (dispatch) => {
+export const getVideosBySearch = keyword => async (dispatch,getState) => {
    try {
       dispatch({
          type: SEARCHED_VIDEO_REQUEST,
@@ -157,6 +157,7 @@ export const getVideosBySearch = keyword => async (dispatch) => {
             type: 'video,channel',
          },
       })
+      console.log('data',data);
       dispatch({
          type: SEARCHED_VIDEO_SUCCESS,
          payload: data.items

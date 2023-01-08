@@ -15,10 +15,10 @@ const Header = ({ handlerToggleButton }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(`/search/${input}`);
-    // setInput()
+    setInput(" ");
   };
 
-  const {user} = useSelector(state=>state.auth)
+  const {user} = useSelector(state=>state.auth);
   // console.log(input);
   return (
     <div className="header flex">
