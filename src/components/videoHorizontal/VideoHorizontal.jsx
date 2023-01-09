@@ -70,7 +70,7 @@ const VideoHorizontal = ({video, SearchScreen, subScreen}) => {
   }, [channelId]);
 
   const handleVideo = ()=>{
-      navigate(`/watch/${id?.videoId}`) ;
+    navigate(`/watch/${id?.videoId}`);
 
   }
 

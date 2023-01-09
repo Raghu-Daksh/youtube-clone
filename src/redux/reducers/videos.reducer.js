@@ -35,9 +35,7 @@ export const homeVideoReducer = (
       return {
         ...state,
         videos:
-        state.activeCategory === payload.category
-        ? [...state.videos, ...payload.videos]
-        : payload.videos,
+      payload.videos,
 
         loading: false,
         nextPageToken: payload.nextPageToken,

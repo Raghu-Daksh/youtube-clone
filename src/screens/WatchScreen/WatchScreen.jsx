@@ -6,6 +6,7 @@ import VideoHorizontal from "../../components/videoHorizontal/VideoHorizontal";
 import VideoMetaDdata from "../../components/videoMetadat/VideoMetaDdata";
 import { useDispatch, useSelector } from "react-redux";
 import "./watchScreen.scss";
+import {Helmet } from 'react-helmet'
 import { getRelatedVideos, getVideoById } from "../../redux/actions/video.action";
 const WatchScreen = () => {
 
@@ -30,6 +31,9 @@ const WatchScreen = () => {
   // console.log('loading', loading);
   return (
     <Row>
+      <Helmet>
+        <title>{video?.snippet?.title}</title>
+      </Helmet>
       <Col lg={8}>
         <div className="watchScreen__player">
           <iframe
